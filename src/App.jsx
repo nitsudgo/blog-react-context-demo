@@ -18,12 +18,11 @@ function App() {
 
       <div className="col-span-full text-left flex flex-col gap-4">
         <div>
-          Consider the following JSON object that contains the values of various fields in a relatively nested form:
+          Let's see how we would handle an example nested form using props only, versus using React Context. For the end user, the end result is identical in both cases: <b>you won't notice any differences when playing around with the forms</b>- but check out the code to see what a difference it can make for developers!
         </div>
 
-        <div>Let's see how we would pass this down and handle changes using props only, versus using React Context.</div>
         <div>
-          For the end user, the end result is identical in both cases: <b>you won't notice any differences when playing around with the forms</b>- but check out the code to see what a difference it can make for developers!
+          This example codebase, and respective Hashnode post will NOT cover the mitigation of prop drilling with component composition, or object destructuring. The objective here is to draw comparisons with Context.
         </div>
       </div>
 

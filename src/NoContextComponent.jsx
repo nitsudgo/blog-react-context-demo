@@ -1,3 +1,6 @@
+// Without using context, we can find ourselves in a "prop drilling" nightmare!
+// Notice how we're passing fieldValues and setFieldValues down through many levels! That's alot of repetition...
+// App.js -> NoContextComponent -> SubComponentA + SubComponentB + (SubComponentC -> AddTimestampButton)
 function NoContextComponent ({ fieldValues, setFieldValues }) {
     return (
         <>
@@ -63,6 +66,7 @@ function SubComponentB ({ fieldValues, setFieldValues }) {
     )
 }
 
+// For AddTimestampButton, we pass the state through SubComponentC even though it doesn't use anything from the state!
 function SubComponentC ({ fieldValues, setFieldValues }) {
     return (
         <div className="flex flex-col gap-4 p-2 border rounded-lg no-context-example font-mono">
@@ -76,6 +80,8 @@ function SubComponentC ({ fieldValues, setFieldValues }) {
     )
 }
 
+// fieldValues and setFieldValues have travelled through many levels just to get here to be used!
+// App.js (parent) -> NoContextComponent -> SubComponentC -> AddTimestampButton
 function AddTimestampButton ({ fieldValues, setFieldValues }) {
     return (
         <div className="flex flex-col gap-4 p-2 border rounded-lg no-context-example font-mono">
